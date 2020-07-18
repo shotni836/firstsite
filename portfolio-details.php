@@ -99,6 +99,20 @@
          
           <li data-filter=".filter-card">Price </li>
           <li data-filter=".filter-web">Delivery Time</li>
+            
+            <?php $cols = "SELECT price from projects WHERE price<5000";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    echo $rows["price"];?>
+            <br>
+            <?php
+                    
+                }
+            }
+            ?>
           </ul> </div></section>
         <?php      
           
@@ -124,8 +138,11 @@
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                   <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["name"]; ?></h4>
-                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["price"]; ?></span>
-                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["deliverytime"]; ?></p>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $row["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $row["deliverytime"]; ?></p>
                    <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["description"]; ?></p>
                 
               </div>
