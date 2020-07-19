@@ -67,6 +67,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+            <li><a href="registration.php">Become a seller</a></li>
           <li class="active"><a href="main.php">Home</a></li>
           <li><a href="#about">About</a></li>
           

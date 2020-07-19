@@ -45,6 +45,51 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    
+    <style>
+        .dropbtn,.all {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+    
+    
 </head>
 
 <body>
@@ -86,6 +131,8 @@
       </div>
     </section><!-- End Breadcrumbs -->
       
+      
+      <section id="team" class="team section-bg">
       <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
@@ -95,25 +142,369 @@
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
          
-          <li data-filter=".filter-card">Price </li>
-          <li data-filter=".filter-web">Delivery Time</li>
+         <form action="portfolio-details.php" name="form1" method="post">
+             <button class="all" name="all">All</button>
+         <div class="dropdown">
+  <button class="dropbtn">Price</button>
+  <div class="dropdown-content">
+    <button name="price1">0-5000</button>
+    <button name="price2">5000-10000</button>
+    <button name="price3">>10000</button>
+  </div>
+</div>
+             
+              <div class="dropdown">
+  <button class="dropbtn">Delivery time</button>
+  <div class="dropdown-content">
+    <button name="time1">1 day</button>
+    <button name="time2">2-3 days</button>
+    <button name="time3">within 7 days</button>
+  </div>
+</div>
+             
+            </form>
+          
             
-            <?php $cols = "SELECT price from projects WHERE price<5000";
+          </ul>
+          
+           <?php
+            
+            if(isset($_POST['all'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['all']);
+            $cols = "SELECT * from projects ";
             $results = mysqli_query($connection,$cols);
             $queryResults = mysqli_num_rows($results);
             
             if($queryResults > 0){
                 while($rows = mysqli_fetch_assoc($results)){
-                    echo $rows["price"];?>
+                    ?>
             <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
             <?php
-                    
+                }
                 }
             }
             ?>
-          </ul> </div></section>
+          
+          
+          <?php
+            
+            if(isset($_POST['time1'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['time1']);
+            $cols = "SELECT * from projects WHERE deliverytime=1";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+            <?php
+            
+            if(isset($_POST['time2'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['time2']);
+            $cols = "SELECT * from projects WHERE deliverytime>1 AND deliverytime<=3";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+            <?php
+            
+            if(isset($_POST['time3'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['time3']);
+            $cols = "SELECT * from projects WHERE deliverytime>3";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+          
+          
+          
+            <?php
+            
+            if(isset($_POST['price1'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['price1']);
+            $cols = "SELECT * from projects WHERE price<5000";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+          <?php
+            
+            if(isset($_POST['price2'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['price2']);
+            $cols = "SELECT * from projects WHERE price>5000 AND price<=10000";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+            <?php
+            
+            if(isset($_POST['price3'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['price3']);
+            $cols = "SELECT * from projects WHERE price>10000";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+          </div></section></section>
+      
+      
+      
         <?php      
           
           
@@ -137,13 +528,13 @@
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["name"]; ?></h4>
-                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
-                  echo $row["price"]; ?></span>
-                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  <h4><a href="inner-page.php?name=<?php echo $row["name"]; ?>&price=<?php echo $row["price"]; ?>&description=<?php echo $row["description"];?>&deliverytime=<?php echo $row["deliverytime"]; ?>">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["name"]; ?></a></h4>
+                 <span><a href="inner-page.php?name=<?php echo $row["name"]; ?>&price=<?php echo $row["price"]; ?>&description=<?php echo $row["description"];?>&deliverytime=<?php echo $row["deliverytime"]; ?>">Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $row["price"]; ?></a></span>
+                  <p><a href="inner-page.php?name=<?php echo $row["name"]; ?>&price=<?php echo $row["price"]; ?>&description=<?php echo $row["description"];?>&deliverytime=<?php echo $row["deliverytime"]; ?>">Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
                   
-                  echo $row["deliverytime"]; ?></p>
-                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["description"]; ?></p>
+                  echo $row["deliverytime"]; ?></a></p>
+                  <p><a href="inner-page.php?name=<?php echo $row["name"]; ?>&price=<?php echo $row["price"]; ?>&description=<?php echo $row["description"];?>&deliverytime=<?php echo $row["deliverytime"]; ?>">Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["description"]; ?></a></p>
                 
               </div>
             </div>

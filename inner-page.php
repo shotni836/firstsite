@@ -86,12 +86,12 @@
           
         <div class="row">
            
-          <div class="col-lg-6 mt-4 ">
+          <div class="col-lg-10 mt-4 ">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
               <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                  <h4><a> Name :  <?php echo $_POST["name"]; ?></a></h4>
-                  <h4><a>  Price: <?php echo $_GET['price']; ?></a></h4>
+                  <h4><a> Name :  <?php echo $_GET["name"]; ?></a></h4><br>
+                  <h4><a>  Price: <?php echo $_GET['price']; ?></a></h4><br>
                   <h4><a>  Delivery Time: <?php echo $_GET['deliverytime']; ?><br></a></h4>
                   <h4><a> Description:<?php echo $_GET['description']; ?></a></h4>
               </div>

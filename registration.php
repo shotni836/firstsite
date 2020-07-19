@@ -20,7 +20,7 @@ if (isset($_REQUEST['username'])){
  $password = mysqli_real_escape_string($con,$password);
  $trn_date = date("Y-m-d H:i:s");
         $query = "INSERT into `users` (username, password, email, trn_date)
-VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
+VALUES ('$username', '$password', '$email', '$trn_date')";
         $result = mysqli_query($con,$query);
         if($result){
             echo "<div class='form'>
@@ -31,7 +31,7 @@ VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
 ?>
 <div class="form">
 <h1>Registration</h1>
-<form name="registration" action="" method="post">
+<form name="registration" action="registerproduct.php" method="post">
 <input type="text" name="username" placeholder="Username" required />
 <input type="email" name="email" placeholder="Email" required />
 <input type="password" name="password" placeholder="Password" required />
