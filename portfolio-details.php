@@ -146,7 +146,7 @@
          <form action="portfolio-details.php" name="form1" method="post">
              <button class="all" name="all">All</button>
          <div class="dropdown">
-  <button class="dropbtn">Price</button>
+  <button class="dropbtn" name="price">Price</button>
   <div class="dropdown-content">
     <button name="price1">0-5000</button>
     <button name="price2">5000-10000</button>
@@ -155,7 +155,7 @@
 </div>
              
               <div class="dropdown">
-  <button class="dropbtn">Delivery time</button>
+  <button class="dropbtn" name="delivery">Delivery time</button>
   <div class="dropdown-content">
     <button name="time1">1 day</button>
     <button name="time2">2-3 days</button>
@@ -167,6 +167,101 @@
           
             
           </ul>
+            
+           <?php
+            
+            if(isset($_POST['delivery'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['delivery']);
+            $cols = "SELECT * from projects ";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
+          
+          
+          <?php
+            
+            if(isset($_POST['price'])){
+            $searching = mysqli_real_escape_string($connection,$_POST['price']);
+            $cols = "SELECT * from projects ";
+            $results = mysqli_query($connection,$cols);
+            $queryResults = mysqli_num_rows($results);
+            
+            if($queryResults > 0){
+                while($rows = mysqli_fetch_assoc($results)){
+                    ?>
+            <br>
+            <br><br><br>
+             
+      <div class="container" data-aos="fade-up">
+                   <div class="row">
+           
+          <div class="col-lg-10 mt-4 ">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["name"]; ?></h4>
+                 <span>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php 
+                  echo $rows["price"]; ?></span>
+                  <p>Delivery time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php
+                  
+                  echo $rows["deliverytime"]; ?></p>
+                   <p>Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rows["description"]; ?></p>
+                
+              </div>
+            </div>
+          </div>
+
+            
+
+          
+
+        </div>
+                      </div>
+                     
+            
+            <?php
+                }
+                }
+            }
+            ?>
           
            <?php
             

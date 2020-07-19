@@ -346,7 +346,7 @@ if (mysqli_num_rows($query) > 0) {
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">What about Software, not available on website <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+               <a data-toggle="collapse" class="collapse" href="#faq-list-1">What about Software, not available on website <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
                 <p>
                   We have a great team, contact us. We will deliver the product within 7 days.
@@ -355,7 +355,7 @@ if (mysqli_num_rows($query) > 0) {
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">What if customer finds difficulty in installing the software. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+               <a data-toggle="collapse" href="#faq-list-2" class="collapsed">What if customer finds difficulty in installing the software. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-parent=".faq-list">
                 <p>
                   We will post the video of how to install certain software, if still anyone find it difficult to install, we will install it in your system using anydesk.
@@ -364,7 +364,7 @@ if (mysqli_num_rows($query) > 0) {
             </li>
 
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">How can customer buy software without being aware of it's functionality. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+               <a data-toggle="collapse" href="#faq-list-3" class="collapsed">How can customer buy software without being aware of it's functionality. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-parent=".faq-list">
                 <p>
                  We will post the demo for the parcticular software. Watch the demo and then buy the software.
@@ -373,7 +373,7 @@ if (mysqli_num_rows($query) > 0) {
             </li>
 
             <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">What if we need any customization. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+               <a data-toggle="collapse" href="#faq-list-4" class="collapsed">What if we need any customization. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-4" class="collapse" data-parent=".faq-list">
                 <p>
                   Basic customization are free of cost. If anyone needs major customization, then only we will charge a bit.

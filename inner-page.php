@@ -39,7 +39,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+  <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><a href="index.html">Website Name</a></h1>
@@ -48,10 +48,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="main.php">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="index.html">Home</a></li>
           
-          <li><a href="#contact">Contact</a></li>
+          
+          
+          
+          
+          
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -59,24 +62,35 @@
       
 
     </div>
-  </header><!-- End Header -->
+      
+      <div class="container d-flex align-items-center">
+
+      <h1 class="logo" style="font-size:16px; margin-top:38px; font-family: sans-serif; text-transform:capitalize;"><a href="index.html">About</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+          <h1 class="logo " style="font-size:16px; margin-top:38px; margin-left:40px; font-family: sans-serif; text-transform:capitalize"><a href="index.html">Pricing</a></h1>
+          <h1 class="logo " style="font-size:16px; margin-top:38px; margin-left:40px; text-transform:capitalize; font-family: sans-serif;"><a href="index.html">Features</a></h1>
+          <h1 class="logo " style="font-size:16px; margin-top:38px; margin-left:49px; text-transform:capitalize; font-family: sans-serif;"><a href="index.html">System Requirements</a></h1>
+          <h1 class="logo " style="font-size:16px; margin-top:38px; margin-left:40px; text-transform:capitalize; font-family: sans-serif;"><a href="index.html">Reviews</a></h1>
+     !-- .nav-menu -->
+
+      
+
+    </div>
+      
+      
+  </header>
+    
+    <!-- End Header -->
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <ol>
-          <li>Contact Us</li>
-          <li>Buy Software </li>
-        </ol>
-        <h2>Easily</h2>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
+    <br><br><br><br><br>
     
+      <section>
+            <h4 class="about" style="margin-left:100px;">ABOUT</h4>
+      </section>
      
           <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
@@ -92,7 +106,7 @@
               <div class="member-info">
                   <h4><a> Name :  <?php echo $_GET["name"]; ?></a></h4><br>
                   <h4><a>  Price: <?php echo $_GET['price']; ?></a></h4><br>
-                  <h4><a>  Delivery Time: <?php echo $_GET['deliverytime']; ?><br></a></h4>
+                  <h4><a>  Delivery Time: <?php echo $_GET['deliverytime']; ?><br></a></h4> <br>
                   <h4><a> Description:<?php echo $_GET['description']; ?></a></h4>
               </div>
             </div>
